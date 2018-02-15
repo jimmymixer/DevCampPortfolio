@@ -37,3 +37,10 @@ rubygems.org
       # This will go and find everything in the database and add the slug to each
 
   restart the server
+
+rails g migration add_post_status_to_blogs status:integer
+in db/migrate/ the last migration file
+  def change
+    ... add default: 0 to the end of the line, separted with a comma
+  end
+  rails db:migrate
