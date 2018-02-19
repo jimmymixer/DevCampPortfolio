@@ -6,4 +6,5 @@ class Blog < ApplicationRecord
   # Validates data entered into database
   validates_presence_of :title, :body
 
+  belongs_to :topic
 end
