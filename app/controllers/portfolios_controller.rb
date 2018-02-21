@@ -1,7 +1,22 @@
 class PortfoliosController < ApplicationController
 
+  # Controller should only handle the data flow
+
   def index
     @portfolio_items = Portfolio.all
+    # @portfolio_items = Portfolio.where(subtitle: 'Angular')
+
+    # Custom Scope 1
+    # .angular is a custom scope defined in portfolio.rb models file
+    # @portfolio_items = Portfolio.angular
+
+    # Custom Scope 2
+    # @portfolio_items = Portfolio.ruby_on_rails_portfolio_items
+  end
+
+  # Custom Action
+  def angular
+    @angular_portfolio_items = Portfolio.angular
   end
 
   def new
