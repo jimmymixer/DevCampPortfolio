@@ -44,3 +44,29 @@ in db/migrate/ the last migration file
     ... add default: 0 to the end of the line, separted with a comma
   end
   rails db:migrate
+
+Nested attributes
+  in portfolio.rb Model
+    add
+      accepts_nested_attributes_for :technologies,
+                                    reject_if: lambda { |attrs| attrs ['name'].blank? }
+  in rails console
+    Portfolio.create!(
+      title: "web App",
+      subtitle: "asdfasdf",
+      body: "asdfasfwew",
+      technologies_attributes: [
+        {name: "Ruby"},
+        {name: "Rails"},
+        {name: "angular"},
+        {name: "ionic"}
+      ]
+    )
+
+
+
+
+
+
+
+#
