@@ -63,6 +63,13 @@ Nested attributes
       ]
     )
 
+  in portfolio_controller.rb Controller
+    in def new
+      3.times { @portfolio_item.technologies.build }
+    in def create
+      add
+        technologies_attributes: [:name] to the .permit
+
 
 
 
