@@ -45,7 +45,7 @@ in db/migrate/ the last migration file
   end
   rails db:migrate
 
-Nested attributes
+Nested attributes -------------------------------------------------
   in portfolio.rb Model
     add
       accepts_nested_attributes_for :technologies,
@@ -70,6 +70,21 @@ Nested attributes
       add
         technologies_attributes: [:name] to the .permit
 
+  in new.html.erb view page
+    add inside the current form
+      <%= f.fields_for :technologies do |technology_form| %>
+        <li>
+          <%= technology_form.label :name %>
+          <%= technology_form.text_field :name %>
+        </li>
+      <% end %>
+
+  in show.html.erb view page
+    add
+      <% @portfolio_item.technologies.each do |t| %>
+        <p><%= t.name %></p>
+      <% end %>
+-------------------------------------------------
 
 
 
