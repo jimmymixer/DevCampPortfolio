@@ -7,6 +7,9 @@ module SetSource
     before_action :set_source
   end
 
+  # ex /portfolio/4?q=twitter
+  # we can put twitter into session and be able to access it on all pages.
+  # can implement "Thanks for visiting us from twitter", on application.html.erb
   def set_source
     session[:source] = params[:q] if params[:q]
   end
