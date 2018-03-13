@@ -72,18 +72,18 @@ Nested attributes -------------------------------------------------
 
   in new.html.erb view page
     add inside the current form
-      <%= f.fields_for :technologies do |technology_form| %>
+      <%= f.fields_for :technologies do |technology_form| % >
         <li>
-          <%= technology_form.label :name %>
-          <%= technology_form.text_field :name %>
+          <%= technology_form.label :name % >
+          <%= technology_form.text_field :name % >
         </li>
-      <% end %>
+      <% end % >
 
   in show.html.erb view page
     add
-      <% @portfolio_item.technologies.each do |t| %>
-        <p><%= t.name %></p>
-      <% end %>
+      <% @portfolio_item.technologies.each do |t| % >
+        <p><%= t.name % ></p>
+      <% end % >
 -------------------------------------------------
 
 

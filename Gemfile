@@ -21,7 +21,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'hirb'
 gem 'friendly_id', '~> 5.1.0'
 gem 'devise', '~> 4.4', '>= 4.4.1'
-
+# gem 'pry', '~> 0.11.3'
+# gem install pry
 
 group :development, :test do
   gem 'byebug', platform: :mri

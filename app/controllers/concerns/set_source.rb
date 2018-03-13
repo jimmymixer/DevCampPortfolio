@@ -1,15 +1,17 @@
-module DeviseWhitelist
-  # This is a white list module
+module SetSource
+  # This is a set source module
   # Name of this module has to be the same as the file name!
   extend ActiveSupport::Concern
 
   included do
-    before_filter :configure_permitted_parameters, if: :devise_controller?
+    before_action :set_source
   end
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+  # ex /portfolio/4?q=twitter
+  # we can put twitter into session and be able to access it on all pages.
+  # can implement "Thanks for visiting us from twitter", on application.html.erb
+  def set_source
+    session[:source] = params[:q] if params[:q]
   end
 
 # Notes:

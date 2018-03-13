@@ -4,18 +4,9 @@ class PortfoliosController < ApplicationController
 
   def index
     @portfolio_items = Portfolio.all
-    # @portfolio_items = Portfolio.where(subtitle: 'Angular')
-
-    # Custom Scope 1
-    # .angular is a custom scope defined in portfolio.rb models file
-    # @portfolio_items = Portfolio.angular
-
-    # Custom Scope 2
-    # @portfolio_items = Portfolio.ruby_on_rails_portfolio_items
   end
 
-  # Custom Action
-  def angular
+  def angular  # Custom Action
     @angular_portfolio_items = Portfolio.angular
   end
 
@@ -25,7 +16,7 @@ class PortfoliosController < ApplicationController
   end
 
   def create
-    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+    @portfolio_item = Portfolio.new(portfolio_params)
 
     respond_to do |format|
       if @portfolio_item.save
@@ -43,7 +34,7 @@ class PortfoliosController < ApplicationController
   def update
     @portfolio_item = Portfolio.find(params[:id])
     respond_to do |format|
-      if @portfolio_item.update(params.require(:portfolio).permit(:title, :subtitle, :body))
+      if @portfolio_item.update(portfolio_params)
         format.html { redirect_to portfolios_path, notice: "Your record was successfully updated..." }
       else
         format.html { render :edit }
@@ -66,6 +57,13 @@ class PortfoliosController < ApplicationController
 
   private
 
+    def portfolio_params
+      params.require(:portfolio).permit(:title,
+                                        :subtitle,
+                                        :body,
+                                        technologies_attributes: [:name]
+                                      )
+    end
 
 
 end
