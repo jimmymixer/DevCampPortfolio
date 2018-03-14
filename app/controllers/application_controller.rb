@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # DeviseWhitelist is for adding new table column in this case :name
   include DeviseWhitelist
 
-  # SetSource is in the controllers/concerns
+  # SetSource is in the controllers/concerns, ex thank you for visit my from ..twitter
   include SetSource
 
   # Null Object Pattern OpenStruct, overriding current_user
