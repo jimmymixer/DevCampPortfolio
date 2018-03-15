@@ -11,4 +11,7 @@ class ApplicationController < ActionController::Base
   # Null Object Pattern OpenStruct, overriding current_user
   include CurrentUserConcern
 
+  # Dynamic PageTitle
+  include DefaultPageContent
+
 end
