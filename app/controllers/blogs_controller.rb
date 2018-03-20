@@ -1,15 +1,20 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  # blog refers to the layout file named blog.html.erb
+  layout "blog"
 
   # GET /blogs
   # GET /blogs.json
   def index
     @blogs = Blog.all
+    @page_title = "My Portfolio Blog"
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @page_title = Blog.title
+    @seo_keywords = Blog.body
   end
 
   # GET /blogs/new
