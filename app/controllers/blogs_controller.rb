@@ -6,8 +6,13 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    # @blogs = Blog.all
+    # @blogs = Blog.limit(2)
+    # call method | scope from blogs.rb for debugging practice
+    @blogs = Blog.special_blogs
+    byebug
     @page_title = "My Portfolio Blog"
+
   end
 
   # GET /blogs/1
