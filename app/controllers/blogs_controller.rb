@@ -10,7 +10,6 @@ class BlogsController < ApplicationController
     # @blogs = Blog.limit(2)
     # call method | scope from blogs.rb for debugging practice
     @blogs = Blog.special_blogs
-    byebug
     @page_title = "My Portfolio Blog"
 
   end
