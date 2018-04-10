@@ -2,6 +2,8 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
   # blog refers to the layout file named blog.html.erb
   layout "blog"
+  # Petergate
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :delete]}, site_admin: :all
 
   # GET /blogs
   # GET /blogs.json
@@ -10,7 +12,7 @@ class BlogsController < ApplicationController
     # @blogs = Blog.limit(2)
     # call method | scope from blogs.rb for debugging practice
     @blogs = Blog.special_blogs
-    byebug
+    # byebug
     @page_title = "My Portfolio Blog"
 
   end
@@ -18,8 +20,8 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @page_title = Blog.title
-    @seo_keywords = Blog.body
+    @page_title = @blog.title
+    @seo_keywords = @blog.body
   end
 
   # GET /blogs/new

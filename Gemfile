@@ -27,6 +27,7 @@ gem 'petergate', '~> 1.8', '>= 1.8.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  # Installed for this project
   gem 'pry-byebug'
 end
 
