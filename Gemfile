@@ -24,6 +24,7 @@ gem 'devise', '~> 4.4', '>= 4.4.1'
 # gem 'pry', '~> 0.11.3'
 # gem install pry
 gem 'petergate', '~> 1.8', '>= 1.8.1'
+gem 'bootstrap', '~> 4.1.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
