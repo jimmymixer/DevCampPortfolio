@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   # blog refers to the layout file named blog.html.erb
   layout "blog"
   # Petergate
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :delete]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :delete, :toggle_status]}, site_admin: :all
 
   # GET /blogs
   # GET /blogs.json
