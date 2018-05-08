@@ -13,6 +13,10 @@ class Portfolio < ApplicationRecord
     where(subtitle: 'Angular')
   end
 
+  def self.by_position # this is being called on in the portfolio_controller in the index action
+    order("position ASC")
+  end
+
   # Custom Scope 2
   # Can use this in the portfolios controller
   scope :ruby_on_rails_portfolio_items, -> { where(subtitle: 'Ruby on Rails') }
