@@ -7,6 +7,13 @@ class Portfolio < ApplicationRecord
   include Placeholder
   validates_presence_of :title, :body, :main_image, :thumb_image
 
+  # Setup mapping between in uploader and database
+  # mount_uploader tells portfolio.rb that it needs to call carrierwave
+  # uploader is going to apply it to the thumb_image
+  # going to use the PortfolioUploader
+  mount_uploader :thumb_image, PortfolioUploader
+  mount_uploader :main_image, PortfolioUploader
+
   # Custom Scope 1
   # Can use this in the portfolios controller
   def self.angular
@@ -27,6 +34,9 @@ class Portfolio < ApplicationRecord
   def set_defaults
     # self.main_image ||= "http://via.placeholder.com/600x200"
     # self.thumb_image ||= "http://via.placeholder.com/350x200"
+    # Placeholder used for developement and not for production
+    # Just to have something there to see the design of page
+    # Placeholder will be moved to be used as a view helper
     self.main_image ||= Placeholder.image_generator(height: '600', width: '200')
     self.thumb_image ||= Placeholder.image_generator(height: '350', width: '200')
   end

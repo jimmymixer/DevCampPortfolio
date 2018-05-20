@@ -28,9 +28,17 @@ gem 'bootstrap', '~> 4.1.0'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+gem 'dotenv-rails', '~> 2.4'
+gem 'carrierwave-aws', '~> 1.3'
+gem 'carrierwave', '~> 1.2', '>= 1.2.2'
+gem 'mini_magick', '~> 4.8'
+gem 'better_errors', '~> 2.4'
 
+# This was for trouble shooting issues with rails
 gem 'execjs'
 gem 'therubyracer'
+
+
 
 
 group :development, :test do
