@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 gem 'rails', '~> 5.0.6'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
@@ -34,12 +33,10 @@ gem 'carrierwave', '~> 1.2', '>= 1.2.2'
 gem 'mini_magick', '~> 4.8'
 gem 'better_errors', '~> 2.4'
 gem 'cocoon', '~> 1.2', '>= 1.2.11'
+gem 'gritter', '~> 1.2'
 # This was for trouble shooting issues with rails
 gem 'execjs'
 gem 'therubyracer'
-
-
-
 
 group :development, :test do
   gem 'byebug', platform: :mri

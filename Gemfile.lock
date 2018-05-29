@@ -106,6 +106,7 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gritter (1.2.0)
     hirb (0.7.3)
     i18n (0.9.4)
       concurrent-ruby (~> 1.0)
@@ -261,6 +262,7 @@ DEPENDENCIES
   execjs
   font-awesome-rails (~> 4.7, >= 4.7.0.4)
   friendly_id (~> 5.1.0)
+  gritter (~> 1.2)
   hirb
   jbuilder (~> 2.5)
   jquery-rails
