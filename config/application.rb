@@ -10,7 +10,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
 require "sprockets/railtie"
-# dotenv-rails for AWS using rails console
+## dotenv-rails for AWS using rails console
 # require "dotenv-rails"
 # require "rails/test_unit/railtie"
 
