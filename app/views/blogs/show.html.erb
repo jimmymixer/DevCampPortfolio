@@ -10,8 +10,10 @@
 
   <%= render "comments/comment_form" %>
 
-  <!-- This is render a partial in comments/_comment.html.erb -->
-  <%= render @blog.comments %>
+  <div id="comments" data-blod-id="<%= @blog.id %>">
+    <!-- This is render a partial in comments/_comment.html.erb -->
+    <%= render @blog.comments %>
+  </div>
 
 
 </div>
