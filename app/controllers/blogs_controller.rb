@@ -12,7 +12,15 @@ class BlogsController < ApplicationController
     # @blogs = Blog.limit(2)
     # call method | scope from blogs.rb for debugging practice
     # @blogs = Blog.special_blogs
-    @blogs = Blog.page(params[:page]).per(5)
+
+    # Using petergate method
+    if logged_in?(:site_admin)
+      # recent is a scope found in models/blog.rb
+      @blogs = Blog.recent.page(params[:page]).per(5)
+    else
+      @blogs = Blog.published.recent.page(params[:page]).per(5)
+    end
+
     # byebug
     @page_title = "My Portfolio Blog"
 
