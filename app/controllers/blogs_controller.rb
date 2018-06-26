@@ -29,13 +29,18 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    # For performance
-    # Includes not just the blog but comments for that blog
-    @blog = Blog.includes(:comments).friendly.find(params[:id])
-    @comment = Comment.new
+    # logged_in from petergate and published from enum
+    if logged_in?(:site_admin) || @blog.published?
+      # For performance
+      # Includes not just the blog but comments for that blog
+      @blog = Blog.includes(:comments).friendly.find(params[:id])
+      @comment = Comment.new
 
-    @page_title = @blog.title
-    @seo_keywords = @blog.body
+      @page_title = @blog.title
+      @seo_keywords = @blog.body
+    else
+      redirect_to blogs_path, notice: "You are not authorized to access this page"
+    end
   end
 
   # GET /blogs/new
