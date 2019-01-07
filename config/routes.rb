@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+
+  resources :topics, only: [:index, :show]
+
   # Commented out "resources :comments" becauce of ActionCable
   # resources :comments
-  
+
   # Added custom route for sign_in, sign_out, sign_up
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   resources :portfolios, except: [:show] do
