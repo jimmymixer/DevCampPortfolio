@@ -20,7 +20,10 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
   get 'tech-news', to: 'pages#tech_news'
 
+<<<<<<< HEAD
   # This makes a websocket connection
+=======
+>>>>>>> actioncable
   mount ActionCable.server => '/cable'
 
   root to: 'pages#home'
